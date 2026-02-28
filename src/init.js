@@ -14,11 +14,12 @@ function createSeedCard(root, seed) {
     let card = $(`<div name="${seed.name}"></div>`);
     card.append(nameNode);
     card.append(descriptionNode);
-    card.on('mouseenter', () => card.css({ 'background': 'lightgrey'}))
-        .on('mouseleave', () => card.css({ 'background': 'white'}))
+    card.on('mouseenter', () => card.css({ 'background': seed.special ? 'green' : 'lightgrey' }))
+        .on('mouseleave', () => card.css({ 'background': seed.special ? 'lightgreen' : 'white' }))
         .on('click', () => selectSeed(root, seed));
     card.css({
-        'margin': '10px'
+        'margin': '10px',
+        'background-color': seed.special ? 'lightgreen' : 'white'
     })
     nameNode.css({
         'font-weight': 'bold'
