@@ -36,7 +36,7 @@ function createSeedCard(root, seed) {
 }
 
 function initCategories(root) {
-    let allCat = $(`<div>All</div>`);
+    let allCat = $(`<div name="all">All</div>`);
     allCat.css({
         'margin': '5px'
     });
@@ -60,7 +60,7 @@ function initCategories(root) {
             'flex-flow': 'wrap'
         });
         
-        let allSubCat = $(`<div>All</div>`);
+        let allSubCat = $(`<div name="all">All</div>`);
         allSubCat.css({
             'margin': '5px'
         });
@@ -68,7 +68,7 @@ function initCategories(root) {
         container.append(allSubCat);
 
         for(let subentry of EFFECTS_CATEGORIES[entry]) {
-            let subcategory = $(`<div>${EFFECTS_CATEGORIES_NAMES[subentry]}</div>`);
+            let subcategory = $(`<div name="${subentry}">${EFFECTS_CATEGORIES_NAMES[subentry]}</div>`);
             subcategory.css({
                 'margin': '5px'
             });
@@ -105,9 +105,14 @@ function changeCategory(root, category, subcategory) {
     root.find(`.effects-subcategories > div`).css({
         'display': 'none'
     });
-    root.find(`.effects-subcategories div[name="${category}"]`).css({
+    root.find(`.effects-categories > div`).removeAttr('selected').css({ 'background': 'white' });
+    root.find(`.effects-subcategories > div > div`).removeAttr('selected').css({ 'background': 'white' });
+
+    root.find(`.effects-subcategories > div[name="${category}"]`).css({
         'display': 'flex'
     });
+    root.find(`.effects-categories > div[name="${category}"]`).attr('selected', '').css({ 'background': 'lightgrey' });
+    root.find(`.effects-subcategories > div > div[name="${subcategory}"]`).attr('selected', '').css({ 'background': 'lightgrey' });
     updateEffectsWithCategory(root, category, subcategory);
 }
 
@@ -123,7 +128,7 @@ function updateEffectsWithCategory(root, category, subcategory) {
     let i = 0;
     for(let effect of effects) {
         if(category === 'all'
-            || (category === EFFECTS_REVERSE_CATEGORIES[effect.categories]
+            || (effect.categories.map(c => EFFECTS_REVERSE_CATEGORIES.get(c)).some(c => c === category)
                 && (subcategory === 'all' || effect.categories.includes(subcategory)))) {
             effectsNode.append(`<li>${effect.description}</li>`);
             i++;
@@ -134,7 +139,11 @@ function updateEffectsWithCategory(root, category, subcategory) {
 
 function applyButtonEffect(element, lightcolor, color, fun) {
     element
-        .on('mouseenter', () => element.css({ 'background': color }))
-        .on('mouseleave', () => element.css({ 'background': lightcolor }))
+        .on('mouseenter', () => {
+            if(!element.is('[selected]')) element.css({ 'background': color })
+        })
+        .on('mouseleave', () => {
+            if(!element.is('[selected]')) element.css({ 'background': lightcolor })
+        })
         .on('click', fun);
 }
