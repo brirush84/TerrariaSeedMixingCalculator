@@ -1,11 +1,16 @@
 function init(root) {
+    initIndex();
+    insertSeeds(root, ALLSEEDS);
+    root.find('.search').on('input', () => search(root));
+    updateEffects(root);
+}
+
+function insertSeeds(root, seeds) {
     let seedList = root.find('.seed-list');
+    seedList.children().remove();
     for(let seed of seeds) {
         seedList.append(createSeedCard(root, seed));
     }
-    initIndex();
-    root.find('.search').on('input', () => search(root));
-    updateEffects(root);
 }
 
 function createSeedCard(root, seed) {
@@ -14,11 +19,12 @@ function createSeedCard(root, seed) {
     let card = $(`<div name="${seed.name}"></div>`);
     card.append(nameNode);
     card.append(descriptionNode);
-    card.on('mouseenter', () => card.css({ 'background': 'lightgrey'}))
-        .on('mouseleave', () => card.css({ 'background': 'white'}))
+    card.on('mouseenter', () => card.css({ 'background': seed.special ? 'green' : 'lightgrey' }))
+        .on('mouseleave', () => card.css({ 'background': seed.special ? 'lightgreen' : 'white' }))
         .on('click', () => selectSeed(root, seed));
     card.css({
-        'margin': '10px'
+        'margin': '10px',
+        'background-color': seed.special ? 'lightgreen' : 'white'
     })
     nameNode.css({
         'font-weight': 'bold'
@@ -38,7 +44,7 @@ function selectSeed(root, seed) {
         .on('click', () => unselectSeed(root, seed));
     selectedSeeds.append(node);
     if(seed.name === 'Zenith') {
-        seeds.filter(s => s.special && s.name !== 'Skyblock').forEach(s => selectSeed(root, s));
+        ALLSEEDS.filter(s => s.special && s.name !== 'Skyblock').forEach(s => selectSeed(root, s));
     }
     updateEffects(root);
 }
