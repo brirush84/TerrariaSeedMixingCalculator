@@ -618,7 +618,7 @@ addCombo([drunk, seedNot(vampirism), seedNot(notTheBees), seedOr([remix, seedNot
     { 'categories': [], 'description': 'The background during world generation is a Glowing Mushroom biome.' },
 ]);
 
-addCombo([notTheBees, seedNot(Zenith)], [
+addCombo([notTheBees, seedNot(zenith)], [
     { 'categories': [], 'description': 'All world generation messages are replaced with \'Generating Bees\'.' },
 ]);
 
