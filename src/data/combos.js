@@ -1,5 +1,103 @@
-addCombo([skyblock, seedOr([seedNot(forTheWorthy), celebrationMk10]) ], [
+addCombo([skyblock], [
    { 'categories': ['biome'], 'description': 'The world is almost entirely empty. The player spawns on a Sky Island.'},
+]);
+
+addCombo([skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms]) ], [
+   { 'categories': ['biome'], 'description': 'Extra sky islands spawn based on the world size. Life Crystals may spawn on Cavern or lower islands.'},
+]);
+
+addCombo([skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms]), noSurface ], [
+   { 'categories': ['biome'], 'description': 'Mana crystals may spawn on Cavern or lower islands.'},
+]);
+
+addCombo([skyblock, extraFloatingIslands ], [
+   { 'categories': ['biome'], 'description': 'Regular Floating Islands with Skyware houses and chests spawn in addition to other islands.'},
+]);
+
+addCombo([celebrationMk10, seedNot(forTheWorthy), skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])], [
+    { 'categories': ['enemyspawning'], 'description': 'Underground houses on islands below the surface have a 50% chance to be converted to rainbow brick.' },
+]);
+
+addCombo([skyblock, seedOr([randomSpawn,vampirism]) ], [
+   { 'categories': ['biome'], 'description': 'The starting island spawns randomly in the Underground or Cavern layer. Torches are placed on the island. Life Crystals may spawn on the starting island.'},
+]);
+
+addCombo([skyblock, seedNot(vampirism), seedNot(randomSpawn), remix], [
+    { 'categories': ['biome'], 'description': 'The starting island is in the Underworld and consists of ash blocks with lava clouds. Life Crystals may spawn on the starting island.' },
+]);
+
+addCombo([skyblock, seedOr([vampirism,remix, randomSpawn]), noSurface], [
+    { 'categories': ['biome'], 'description': 'Mana Crystals may spawn on the starting island.' },
+]);
+
+addCombo([skyblock, seedNot(vampirism), seedNot(randomSpawn), seedNot(remix), noSurface], [
+    { 'categories': ['biome'], 'description': 'The starting island is in the underground. Torches are placed on the island. Life Crystals and Mana Crystals may spawn on the starting island.' },
+]);
+
+addCombo([skyblock, seedNot(vampirism), seedNot(randomSpawn), seedNot(remix), seedNot(noSurface), surfaceIsInSpace], [
+    { 'categories': ['biome'], 'description': 'The starting island is in space.' },
+]);
+
+addCombo([skyblock, teamBasedSpawns], [
+    { 'categories': ['biome'], 'description': 'There are starting islands for every team.' },
+]);
+
+addCombo([extraLiquid, skyblock], [
+    { 'categories': ['biome'], 'description': 'Sky Lakes spawn, and their regular clouds and rain clouds are swapped with each other. At least one Sky Lake spawns in the lava layer of the world, and all such lakes have lava and lava clouds.' },
+]);
+
+addCombo([skyblock, extraLivingTrees], [
+    { 'categories': ['biome'], 'description': 'Living trees can spawn on sky islands.' },
+]);
+
+addCombo([extraLiquid, notTheBees, skyblock], [
+    { 'categories': ['biome'], 'description': 'Sky Lakes filled with Honey spawn. They have most of their cloud blocks replaced with rain clouds.' },
+]);
+
+addCombo([skyblock, drunk, celebrationMk10, extraLiquid], [
+    { 'categories': ['biome'], 'description': 'Sky Lakes filled with Shimmer spawn.  They have most of their cloud blocks replaced with rain clouds.' },
+]);
+
+
+addCombo([drunk, skyblock, worldIsInfected], [
+    { 'categories': ['biome'], 'description': 'The main island and many other islands are infected with a random world evil. If underground, the islands contain corrupted stone; if above ground, they contain corrupted grass.' },
+]);
+
+addCombo([seedNot(drunk), skyblock, worldIsInfected], [
+    { 'categories': ['biome'], 'description': 'The main island and many other islands are infected with the world evil. If underground, the islands contain corrupted stone; if above ground, they contain corrupted grass.' },
+]);
+
+addCombo([skyblock, surfaceIsMushrooms], [
+    { 'categories': ['biome'], 'description': 'Mushroom islands spawn.' },
+]);
+
+addCombo([skyblock, hallowOnTheSurface], [
+    { 'categories': ['biome'], 'description': 'Hallow islands spawn with Hallowed Grass if above the surface and Pearlstone if below.' },
+]);
+
+addCombo([skyblock, worldIsFrozen], [
+    { 'categories': ['biome'], 'description': 'Frozen islands spawn. These have Snow if above the surface and Ice if below. Their Clouds are replaced with Snow Clouds.' },
+]);
+
+addCombo([skyblock, surfaceIsDesert], [
+    { 'categories': ['biome'], 'description': 'Desert islands spawn with Sand tiles and no Rain Clouds, only regular Clouds.' },
+]);
+
+addCombo([skyblock, noInfection], [
+    { 'categories': ['biome'], 'description': 'Extra regular dirt islands spawn.' },
+]);
+
+addCombo([drunk, seedNot(remix)], [
+    { 'categories': ['biome'], 'description': 'Snow sky islands and desert sky islands may spawn.' },
+]);
+
+
+addCombo([skyblock, pooEverywhere], [
+    { 'categories': ['biome'], 'description': 'Poo generates on the islands.' },
+]);
+
+addCombo([skyblock, extraLivingTrees], [
+    { 'categories': ['biome'], 'description': 'A Living Tree will generate on the main island.' },
 ]);
 
 addCombo([skyblock, seedOr([celebrationMk10, seedNot(forTheWorthy)])], [
@@ -12,14 +110,269 @@ addCombo([skyblock, seedNot(celebrationMk10), forTheWorthy], [
     { 'categories': ['biome'], 'description': 'The Shimmer island does not spawn.' },
 ]);
 
+addCombo([errorWorld], [
+    { 'categories': ['biome'], 'description': 'Some blocks are randomly shuffled, not including unbreakable blocks like dungeon tiles. Moss can randomly spawn across the world. Some blocks may randomly get echo coating or become inactive or become painted with negative paint. Bubble blocks full of liquid spawn that are painted according to the liquid inside.' },
+]);
+
+addCombo([errorWorld, seedNot(worldIsInfected), seedNot(vampirism)], [
+    { 'categories': ['biome'], 'description': 'All Town NPCs are replaced by the Old Man upon spawn.' },
+]);
+
+addCombo([errorWorld, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'Cracked Dungeon Bricks are coated with Echo Coating.' },
+    { 'categories': ['biome'], 'description': 'Structures including Pyramids, Glowing Mushroom biomes and Sword Shrines can spawn in any biome.' },
+]);
 
 addCombo([drunk, forTheWorthy, seedNot(remix)], [
     { 'categories': ['environment'], 'description': 'Boulder rain can occur.' },
 ]);
 
+addCombo([skyblock, notTheBees, seedNot(remix)], [
+    { 'categories': ['biome'], 'description': 'The starting island has mud and hive blocks, with hive walls.' },
+]);
 
-addCombo([seedOr([paintEverythingGray, paintEverythingNegative]), secretSeedsCount(0, 3, coatEverythingEcho)], [
-    { 'categories': ['paint'], 'description': 'All blocks are painted with Echo Coating except for the blocks that outline chunks of land.' },
+addCombo([skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])], [
+    { 'categories': ['biome'], 'description': 'There are 1000x less attempts to place statues, and the total possible number of statues is halved, compared to a non-Skyblock world.' },
+]);
+
+addCombo([skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])], [
+    { 'categories': ['biome'], 'description': 'Underground houses may spawn, but 100x less attempts are made compared to a non-Skyblock world. Similarly, 2000x less attempts to place pots occur and the total number of possible pots is 5 times less.' },
+]);
+
+
+addCombo([seedNot(noSurface), skyblock, seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees])], [
+    { 'categories': ['biome'], 'description': 'Fallen Logs may spawn but 10 less attemps are made to spawn them and 10 less total can be placed.' },
+]);
+
+addCombo([biggerAbandonedHouses, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees])])], [
+    { 'categories': ['biome'], 'description': 'Much bigger abandoned houses generate.' },
+]);
+
+addCombo([errorWorld, seedNot(biggerAbandonedHouses), seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees])])], [
+    { 'categories': ['biome'], 'description': 'Bigger abandoned houses have a chance to generate.' },
+]);
+
+addCombo([addTeleporters, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees])])], [
+    { 'categories': ['loot'], 'description': 'Teleporters can spawn connecting different locations underground, even if there are no solid blocks nearby.' },
+]);
+
+addCombo([coatEverythingEcho, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees])])], [
+    { 'categories': ['paint'], 'description': 'Spectre Goggles may spawn in chests.' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingGray)), seedNot(worldIsFrozen), seedOr([paintEverythingNegative, coatEverythingEcho, coatEverythingIlluminant])], [
+    { 'categories': ['paint'], 'description': 'The surface is painted gray.' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingGray)), worldIsFrozen, seedOr([paintEverythingNegative, coatEverythingEcho, coatEverythingIlluminant])], [
+    { 'categories': ['paint'], 'description': 'The surface is painted white.' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingGray)), seedNot(worldIsFrozen), seedNot(paintEverythingNegative), seedNot(coatEverythingEcho), seedNot(coatEverythingIlluminant)], [
+    { 'categories': ['paint'], 'description': 'The whole world is painted gray.' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingGray)), worldIsFrozen, seedNot(paintEverythingNegative), seedNot(coatEverythingEcho), seedNot(coatEverythingIlluminant)], [
+    { 'categories': ['paint'], 'description': 'The whole world is painted white.' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingGray)), worldIsFrozen, seedOr([paintEverythingNegative, coatEverythingEcho, coatEverythingIlluminant])], [
+    { 'categories': ['paint'], 'description': 'The surface is painted white.' },
+]);
+
+addCombo([secretSeedsCount(4, -1, paintEverythingGray), paintEverythingGray, seedNot(worldIsFrozen)], [
+    { 'categories': ['paint'], 'description': 'Ore and gems are painted gray.' },
+]);
+
+addCombo([secretSeedsCount(4, -1, paintEverythingGray), paintEverythingGray,  worldIsFrozen], [
+    { 'categories': ['paint'], 'description': 'Ore and gems are painted white.' },
+]);
+
+addCombo([secretSeedsCount(4, -1, paintEverythingNegative), paintEverythingNegative], [
+    { 'categories': ['paint'], 'description': 'Leaf Blocks, Mahogany Leaf Blocks, Cloud Blocks and their varieties, Cloud Walls, Dungeon Bricks, and Dungeon Brick Walls. are painted negative' },
+]);
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingNegative)), seedNot(paintEverythingGray), seedNot(coatEverythingEcho), seedNot(coatEverythingIlluminant)], [
+    { 'categories': ['paint'], 'description': 'The whole world is painted negative.' },
+]);
+
+
+addCombo([seedNot(secretSeedsCount(4, -1, paintEverythingNegative)), seedOr([paintEverythingGray, coatEverythingEcho, coatEverythingIlluminant])], [
+    { 'categories': ['paint'], 'description': 'The underground is painted negative.' },
+]);
+
+addCombo([seedNot(paintEverythingGray), seedNot(paintEverythingNegative), seedNot(secretSeedsCount(3, -1, coatEverythingEcho)), coatEverythingEcho], [
+    { 'categories': ['paint'], 'description': 'All blocks and walls are painted with Echo Coating.' },
+]);
+
+addCombo([seedOr([paintEverythingGray, paintEverythingNegative, secretSeedsCount(3,-1, coatEverythingEcho)]), seedNot(secretSeedsCount(4, -1, coatEverythingEcho)), coatEverythingEcho], [
+    { 'categories': ['paint'], 'description': 'All blocks and walls are painted with Echo Coating except for the blocks that outline chunks of land.' },
+]);
+
+addCombo([seedOr([paintEverythingGray, paintEverythingNegative, secretSeedsCount(3,-1, coatEverythingEcho)]), seedNot(secretSeedsCount(4, -1, coatEverythingEcho)), coatEverythingEcho, errorWorld], [
+    { 'categories': ['paint'], 'description': 'Walls not behind tiles are not painted with echo paint.' },
+]);
+
+addCombo([secretSeedsCount(4, -1, coatEverythingEcho), coatEverythingEcho], [
+    { 'categories': ['paint'], 'description': 'Only traps and spikes are coated with Echo coating.' },
+]);
+
+addCombo([coatEverythingIlluminant, seedOr([paintEverythingGray, paintEverythingNegative, secretSeedsCount(3,-1, coatEverythingIlluminant)])], [
+    { 'categories': ['paint'], 'description': 'Only Life Crystals (and, when present, Mana crystals) are coated with Illluminant coating.' },
+]);
+
+addCombo([coatEverythingIlluminant, coatEverythingEcho, seedNot(paintEverythingGray), seedNot(paintEverythingNegative), seedNot(secretSeedsCount(3,-1, coatEverythingIlluminant))], [
+    { 'categories': ['paint'], 'description': 'Half of the world is coated with Echo coating and half with Illuminant.' },
+]);
+
+addCombo([coatEverythingIlluminant, seedNot(coatEverythingEcho)], [
+    { 'categories': ['paint'], 'description': 'The entire world is coated with Illuminant coating.' },
+]);
+
+addCombo([noSurface, seedNot(errorWorld), seedNot(extraFloatingIslands), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'No Floating Islands spawn.' },
+]);
+
+addCombo([noSurface], [
+   { 'categories': ['biome'], 'description': 'The world has no surface, oceans or space layer.' },
+]);
+
+addCombo([extraFloatingIslands, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'There are extra Floating Islands.' },
+]);
+
+addCombo([extraFloatingIslands, seedNot(skyblock), seedOr([noSurface,secretSeedsCount(6,-1,extraFloatingIslands)])], [
+   { 'categories': ['biome'], 'description': 'The amount of extra Floating Islands from the care bears movie is reduced.' },
+]);
+
+addCombo([hallowOnTheSurface, seedNot(noSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface of the world is Hallow.' },
+]);
+
+addCombo([hallowOnTheSurface, noSurface, seedNot(skyblock), worldIsInfected, noInfection], [
+   { 'categories': ['biome'], 'description': 'The top quarter of the world is Hallow.' },
+]);
+
+addCombo([hallowOnTheSurface, noSurface, seedNot(skyblock), seedOr([seedNot(worldIsInfected), seedNot(noInfection)])], [
+   { 'categories': ['biome'], 'description': 'The top half of the world is Hallow.' },
+]);
+
+addCombo([worldIsInfected, seedNot(noInfection), hallowOnTheSurface, seedNot(noSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All corruptible blocks in the entire world below the surface, with the sole exceptions of the Aether and Jungle Grass, are corrupted.' },
+]);
+
+addCombo([worldIsInfected, seedNot(noInfection), hallowOnTheSurface, noSurface, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All corruptible blocks in the bottom half of the world, with the sole exceptions of the Aether and Jungle Grass, are corrupted.' },
+]);
+
+addCombo([worldIsInfected, seedNot(noInfection), seedNot(hallowOnTheSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All corruptible blocks in the entire world, with the sole exceptions of the Aether and Jungle Grass, are corrupted.' },
+]);
+
+addCombo([noInfection, seedNot(worldIsInfected), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All Corruption and Crimson is removed from the world.' },
+]);
+
+addCombo([noInfection, worldIsInfected, seedNot(noSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The entire world below the surface is corrupted. Only naturally-generated evil chasms on the surface are infected.' },
+]);
+
+addCombo([noInfection, worldIsInfected, noSurface, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The entire world below the cavern layer is corrupted. Only naturally-generated evil chasms above the lava layer are infected.' },
+]);
+
+
+addCombo([surfaceIsMushrooms, noSurface, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All Jungle is converted to Glowing Mushroom Biomes and all Glowing Mushroom Biomes are converted to Jungle.' },
+]);
+
+addCombo([surfaceIsMushrooms, seedNot(noSurface), seedNot(hallowOnTheSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface is converted to Glowing Mushroom Biome.' },
+]);
+
+addCombo([surfaceIsMushrooms, seedNot(noSurface), hallowOnTheSurface, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface is converted to Glowing Mushroom Biome where possible and Hallowed elsewhere, such as the Snow and Desert biomes.' },
+]);
+
+addCombo([surfaceIsDesert, noSurface, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The Snow and Ice biomes are converted to Sand and the Desert and Underground Desert biomes are converted to Snow and Ice.' },
+]);
+
+addCombo([surfaceIsDesert, seedNot(noSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface is covered in desert. This runs before other surface-altering rules, and may be partially overwritten by them.' },
+   { 'categories': ['biome'], 'description': 'There are no surface tunnels or mountain caves.' },
+]);
+
+addCombo([noSurface], [
+   { 'categories': ['townnpc'], 'description': 'The Truffle can move in without being on the surface.' },
+]);
+
+addCombo([seedOr([dualDungeons, errorWorld]), seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
+   { 'categories': ['biome'], 'description': 'Long minecart tracks are more rare.' },
+]);
+
+addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
+   { 'categories': ['biome'], 'description': 'Ruined houses can rarely be much larger or spawn outside the Underworld.' },
+   { 'categories': ['loot'], 'description': 'Chests can be any type of chest except for Dungeon Biome Chests.' },
+  { 'categories': ['loot'], 'description': 'Random furniture can generate in houses, and one of 20 different combinations of walls and tiles can spawn.' },
+]);
+
+
+addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])]), secretSeedsCount(6,-1,errorWorld) ], [
+   { 'categories': ['loot'], 'description': 'Chests can randomly have loot swapped between them anywhere in the world, but the loot must have the same rarity.' },
+]);
+
+addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])]), seedNot(secretSeedsCount(6,-1,errorWorld)) ], [
+   { 'categories': ['loot'], 'description': 'Chests can randomly have loot swapped between them anywhere in the world, regardless of rarity. In addition, one of 32 special items can appear in the chests, including the Universal Pylon' },
+]);
+
+addCombo([noSpiderNests, secretSeedsCount(0,3, noSpiderNests), seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'No Spider Nests may spawn.' },
+    { 'categories': ['townnpc'], 'description': 'The Stylist does not need to be rescued and can move in at any time.' },
+]);
+
+addCombo([noSpiderNests, secretSeedsCount(4,-1, noSpiderNests), seedNot(skyblock)], [
+    { 'categories': ['trap'], 'description': 'Many more Spider Nests may spawn.' },
+]);
+
+addCombo([actuallyNoTraps, secretSeedsCount(0,3, actuallyNoTraps), seedOr([seedNot(skyblock),seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
+    { 'categories': ['trap'], 'description': 'The vast majority of traps, spikes, etc. do not spawn. Occasionaly a few may linger from world generation artifacts.' },
+]);
+
+addCombo([actuallyNoTraps, secretSeedsCount(4,-1, actuallyNoTraps), seedOr([seedNot(skyblock),seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
+    { 'categories': ['trap'], 'description': 'Spikes are added, surrounding Life Crystals and Chests.' },
+]);
+
+addCombo([noSurface, seedNot(errorWorld), seedNot(extraLivingTrees), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'No Living Trees spawn.' },
+]);
+
+addCombo([noSurface, seedNot(errorWorld), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'No Pyramids or Sword Shrines spawn.' },
+]);
+
+addCombo([seedNot(skyblock), errorWorld], [
+   { 'categories': ['biome'], 'description': 'Sword Shrines can spawn even deep underground.' },
+]);
+
+addCombo([roundLandmasses, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'All solid blocks in the world are divided up into large round landmasses.' },
+]);
+
+addCombo([roundLandmasses, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The total number of spider caves is cut in half.' },
+]);
+
+addCombo([surfaceIsInSpace, seedNot(noSurface), seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface of the world is moved up into space.' },
+]);
+
+addCombo([surfaceIsInSpace, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The surface of the world is moved up into space.' },
+]);
+
+addCombo([surfaceIsInSpace, seedNot(skyblock)], [
+   { 'categories': ['biome'], 'description': 'The Tower Dungeon entrance will not spawn.' },
 ]);
 
 addCombo([forTheWorthy,remix], [
@@ -104,6 +457,17 @@ addCombo([seedNot(worldIsInfected), seedNot(celebrationMk10), seedNot(vampirism)
     { 'categories': ['townnpc'], 'description': 'The Guide is replaced by the Party Girl.' },
 ]);
 
+addCombo([worldIsFrozen, seedNot(skyblock), endlessChristmas], [
+    { 'categories': ['townnpc'], 'description': 'If the Guide is not replace by other seeds, he is now replaced by Santa Claus.' },
+]);
+
+addCombo([worldIsFrozen, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The world is converted to snow outside of the Underworld, Lava layer, Jungle and Desert.' },
+]);
+
+addCombo([worldIsFrozen], [
+    { 'categories': ['townnpc'], 'description': 'Underground houses may have Candy Cane walls.' },
+]);
 
 addCombo([drunk, celebrationMk10, seedNot(remix), seedNot(notTheBees)], [
     { 'categories': ['biome'], 'description': 'Half of the world generates with Shimmer replacing water.' },
@@ -145,7 +509,7 @@ addCombo([drunk, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Tunnels from the Jungle surface to the Underground Jungle do not spawn.' },
 ]);
 
-addCombo([seedOr([drunk, forTheWorthy]), seedNot(skyblock)], [
+addCombo([seedOr([drunk, forTheWorthy]), seedNot(seedAnd([skyblock,seedNot(seedOr([extraLiquid, noInfection, surfaceIsDesert, worldIsFrozen, hallowOnTheSurface, worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees]))]))], [
     { 'categories': ['loot'], 'description': 'Red Potion can spawn in chests.' },
 ]);
 
@@ -270,6 +634,14 @@ addCombo([notTheBees, seedNot(theConstant), seedNot(remix), seedNot(celebrationM
     { 'categories': ['biome'], 'description': 'One ocean is Honey, with its sand converted to Honey Blocks.' },
 ]);
 
+addCombo([digExtraHoles, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'Extra caves, mostly vertical, are generated throughout the world.' },
+]);
+
+addCombo([noSurface, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'Meteorites are present at world generation, spawning throughout the world.' },
+]);
+
 addCombo([notTheBees, seedNot(theConstant), seedNot(remix)], [
     { 'categories': ['biome'], 'description': 'No normal Snow Biome spawns. Instead, snow and ice is placed underneath in large rectangles under the oceans, and can replace the stone around the Shimmer with snow..' },
 ]);
@@ -282,49 +654,24 @@ addCombo([seedOr([notTheBees, celebrationMk10]), noTraps, seedNot(skyblock)], [
     { 'categories': ['trap'], 'description': 'The amount of geysers from No Traps is reduced, but still higher than usual.' },
 ]);
 
-addCombo([remix, drunk, seedOr([seedNot(celebrationMk10), forTheWorthy]), seedNot(skyblock)], [
+addCombo([remix, drunk, forTheWorthy, seedOr([seedNot(skyblock), extraFloatingIslands])], [
+    { 'categories': ['loot'], 'description': 'Both crimson and corruption sky islands spawn.' },
+]);
+
+addCombo([remix, drunk, seedNot(celebrationMk10), seedNot(forTheWorthy), seedOr([seedNot(skyblock), extraFloatingIslands])], [
     { 'categories': ['loot'], 'description': 'Both crimson and corruption sky islands spawn with flesh and lesion chests.' },
 ]);
 
-addCombo([remix, seedNot(drunk)], [
+addCombo([remix, seedNot(drunk), seedNot(forTheWorthy), seedNot(celebrationMk10),seedOr([seedNot(skyblock), extraFloatingIslands])], [
     { 'categories': ['biome', 'loot'], 'description': 'Sky islands are evil and have flesh or lesion chests.' },
 ]);
 
-
-addCombo([drunk, skyblock, worldIsInfected], [
-    { 'categories': ['biome'], 'description': 'The main island and many other islands are infected with a random world evil.' },
+addCombo([forTheWorthy, seedNot(drunk), seedNot(notTheBees), seedOr([seedNot(skyblock), extraFloatingIslands])], [
+    { 'categories': ['biome', 'loot'], 'description': 'Sky islands are evil.' },
 ]);
 
-addCombo([seedNot(drunk), skyblock, worldIsInfected], [
-    { 'categories': ['biome'], 'description': 'The main island and many other islands are infected with the world evil.' },
-]);
-
-addCombo([skyblock, surfaceIsMushrooms], [
-    { 'categories': ['biome'], 'description': 'Mushroom islands spawn.' },
-]);
-
-addCombo([skyblock, hallowOnTheSurface], [
-    { 'categories': ['biome'], 'description': 'Hallow islands spawn.' },
-]);
-
-addCombo([skyblock, worldIsFrozen], [
-    { 'categories': ['biome'], 'description': 'Frozen islands spawn.' },
-]);
-
-addCombo([skyblock, surfaceIsDesert], [
-    { 'categories': ['biome'], 'description': 'Desert islands spawn.' },
-]);
-
-addCombo([skyblock, noInfection], [
-    { 'categories': ['biome'], 'description': 'Extra regular dirt islands spawn.' },
-]);
-
-addCombo([seedOr([forTheWorthy, seedAnd([remix, seedNot(celebrationMk10)])]), seedOr([remix, seedNot(notTheBees)]), seedOr([remix, seedNot(drunk), seedOr([celebrationMk10, seedNot(forTheWorthy)])])], [
-    { 'categories': ['biome'], 'description': 'Sky islands are corrupted with the world evil.' },
-]);
-
-addCombo([drunk, seedNot(remix)], [
-    { 'categories': ['biome'], 'description': 'Snow sky islands and desert sky islands may spawn.' },
+addCombo([forTheWorthy, seedOr([seedNot(skyblock), extraFloatingIslands])], [
+    { 'categories': ['loot'], 'description': 'Sky islands have Locked Gold Chests.' },
 ]);
 
 addCombo([noSurface, extraLivingTrees, seedNot(skyblock)], [
@@ -334,6 +681,11 @@ addCombo([noSurface, extraLivingTrees, seedNot(skyblock)], [
 addCombo([seedNot(noSurface), extraLivingTrees, seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'A very large amount of extra living trees spawn.' },
 ]);
+
+addCombo([extraLivingTrees, seedOr([secretSeedsCount(6,-1,extraLivingTrees), noSurface])], [
+   { 'categories': ['biome'], 'description': 'The amount of extra Living Trees from the save the rainforest seed is reduced.' },
+]);
+
 
 addCombo([notTheBees, celebrationMk10, seedNot(drunk), seedNot(noSurface), seedNot(extraLivingTrees), seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'A very large number of living trees are added, and can spawn in places they usuall wouldn\'t.' },
@@ -357,7 +709,7 @@ addCombo([seedNot(skyblock), noTraps, seedNot(celebrationMk10), seedNot(notTheBe
 ]);
 
 addCombo([seedNot(skyblock), noTraps, seedNot(celebrationMk10), secretSeedsCount(4,-1, actuallyNoTraps)], [
-    { 'categories': ['trap'], 'description': 'A large number of TnT barrels are spread across the world.' },
+    { 'categories': ['trap'], 'description': 'A large number of TNT barrels are spread across the world.' },
 ]);
 
 addCombo([seedNot(skyblock), noTraps, celebrationMk10, secretSeedsCount(4,-1, actuallyNoTraps)], [
@@ -420,6 +772,7 @@ addCombo([noTraps, seedNot(skyblock)], [
   { 'categories': ['trap'], 'description': 'Traps can spawn on the surface.' },
 ]);
 
+
 addCombo([noTraps], [
   { 'categories': ['enemyspawning'], 'description': 'Dart Trap Slimes are more common.' },
 ]);
@@ -452,29 +805,27 @@ addCombo([noTraps, seedNot(notTheBees), seedNot(celebrationMk10), seedNot(skyblo
     { 'categories': ['trap'], 'description': 'Traps that are broken by world generation are allowed to remain.' },
 ]);
 
-addCombo([extraLiquid, seedNot(skyblock)], [
+addCombo([extraLiquid, seedNot(roundLandmasses), seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'The world is filled with liquid except for regions marked off with bubble blocks and for space.' },
 ]);
+
+addCombo([extraLiquid, seedNot(roundLandmasses), seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The round landmasses are filled with liquid, and the bottom part of the world is filled with lava.' },
+]);
+
 
 addCombo([extraLiquid, seedNot(remix), seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Lava fills the Underworld.' },
 ]);
 
-addCombo([extraLiquid, skyblock], [
-    { 'categories': ['biome'], 'description': 'Sky Lakes spawn.' },
+addCombo([extraLiquid, seedNot(skyblock)], [
+    { 'categories': ['loot'], 'description': 'The Diving Helmet can spawn in Underwater Chests.' },
 ]);
 
-addCombo([skyblock, extraLivingTrees], [
-    { 'categories': ['biome'], 'description': 'Living trees can spawn on sky islands.' },
+addCombo([extraLiquid, remix, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The Underworld is clear of liquids except for normal amounts of Lava.' },
 ]);
 
-addCombo([extraLiquid, notTheBees, skyblock], [
-    { 'categories': ['biome'], 'description': 'Sky Lakes filled with Honey spawn.' },
-]);
-
-addCombo([skyblock, drunk, celebrationMk10, extraLiquid], [
-    { 'categories': ['biome'], 'description': 'Sky Lakes filled with Shimmer spawn.' },
-]);
 
 addCombo([celebrationMk10, seedNot(forTheWorthy), seedNot(drunk), seedNot(skyblock)], [
     { 'categories': ['biome'], 'description': 'Sky islands are converted to Hallow.' },
@@ -567,6 +918,10 @@ addCombo([notTheBees, seedNot(theConstant), seedNot(skyblock)], [
 
 addCombo([notTheBees, noTraps, seedNot(theConstant), seedNot(remix), seedNot(skyblock)], [
     { 'categories': ['trap', 'townnpc'], 'description': 'Very many Larvae are scattered around the world.' },
+]);
+
+addCombo([seedNot(actuallyNoTraps), seedOr([seedAnd([skyblock,seedNot(seedOr([extraLiquid, noInfection, surfaceIsDesert, worldIsFrozen,hallowOnTheSurface, worldIsInfected,surfaceIsMushrooms, extraFloatingIslands, extraLivingTrees]))]),seedAnd([notTheBees, seedNot(noTraps), seedNot(remix)])]) ], [
+    { 'categories': ['trap', 'townnpc'], 'description': 'Normal traps are removed, including most Dart Traps and Geysers, but some may spawn in special circumstances (i.e. in the Dungeon or as part of Dead Men\'s Chests).' },
 ]);
 
 addCombo([seedNot(skyblock), secretSeedsCount(4,-1, actuallyNoTraps), noTraps, remix, seedOr([celebrationMk10, notTheBees])], [
@@ -706,10 +1061,6 @@ addCombo([celebrationMk10, seedNot(forTheWorthy)], [
     { 'categories': ['enemyspawning'], 'description': 'Fairies are more likely to spawn underground.' },
 ]);
 
-addCombo([celebrationMk10, seedNot(forTheWorthy), skyblock], [
-    { 'categories': ['enemyspawning'], 'description': 'Any underground houses that spawn on islands from extra seeds have a 50% chance to be converted to rainbow brick.' },
-]);
-
 addCombo([celebrationMk10, seedNot(forTheWorthy), seedNot(skyblock)], [
     { 'categories': ['enemyspawning'], 'description': 'Underground houses have a 50% chance to be converted to rainbow brick.' },
 ]);
@@ -752,6 +1103,10 @@ addCombo([notTheBees, seedNot(skyblock)], [
 
 addCombo([worldIsFrozen, seedNot(skyblock)], [
     { 'categories': ['loot'], 'description': 'Fallen Logs can generate on snow.' },
+]);
+
+addCombo([worldIsFrozen], [
+    { 'categories': ['loot'], 'description': 'Presents can generate in chests.' },
 ]);
 
 addCombo([surfaceIsDesert, seedNot(skyblock)], [
@@ -882,7 +1237,7 @@ addCombo([noSurface, seedNot(skyblock), seedOr([seedNot(remix),seedNot(randomSpa
     { 'categories': ['location'], 'description': 'Spawn is random and torches are placed around spawn.' },
 ]);
 
-addCombo([remix, seedNot(randomSpawn)], [
+addCombo([remix, seedNot(randomSpawn), seedNot(skyblock)], [
     { 'categories': ['location'], 'description': 'The player spawns in the Underworld.' },
 ]);
 
@@ -983,6 +1338,10 @@ addCombo([seedOr([noTraps, errorWorld]), secretSeedsCount(4,-1, actuallyNoTraps)
     { 'categories': ['trap'], 'description': 'Boulder piles may spawn.' },
 ]);
 
+addCombo([errorWorld, secretSeedsCount(4,-1, actuallyNoTraps), seedNot(skyblock)], [
+    { 'categories': ['trap'], 'description': 'Boulder piles may be invisible.' },
+]);
+
 addCombo([seedOr([noTraps, errorWorld]), secretSeedsCount(4,-1, actuallyNoTraps), celebrationMk10, seedNot(skyblock)], [
     { 'categories': ['trap'], 'description': 'Boulder piles have a chance to be Rainbow Boulders.' },
 ]);
@@ -1029,24 +1388,23 @@ addCombo([celebrationMk10, seedNot(theConstant)], [
 ]);
 
 addCombo([remix, seedNot(skyblock)], [
-    { 'categories': ['biome'], 'description': 'The world is reversed, with the layers using the Remix rules for determining the Surface, Underground, Cavern and Ocean biomes. A Glowing Mushroom layer spawns above the Underworld. The Jungle Temple is on the Surface.' },
     { 'categories': ['biome'], 'description': 'The outer edges of the world are corrupted.' },
     { 'categories': ['biome'], 'description': 'In Hardmode, one of the outer Corruption portions of the world is converted to Hallow.' },
     { 'categories': ['biome'], 'description': 'Attempts to generate herbs during world generation are more frequent.' },
     { 'categories': ['biome'], 'description': 'The middle portion of the Underworld is an ash platform, with the outer edges of the world having ruined houses.' },
-    { 'categories': ['biome'], 'description': '50% more surface tunnels spawn.' },
     { 'categories': ['biome'], 'description': 'Sand patches are less common.' },
-    { 'categories': ['loot'], 'description': 'The Flower of Fire is replaced by the Unholy Trident in chests.' },
+    { 'categories': ['loot'], 'description': 'Remix weapon swapping effects are in effect.' },
    { 'categories': ['loot'], 'description': 'Pots can contain a Slime holding a Fallen Star.' },
    { 'categories': ['loot'], 'description': 'Rope and Fallen Stars can drop from pots.' },
 ]);
 
-addCombo([forTheWorthy, seedNot(notTheBees), seedNot(celebrationMk10)], [
-    { 'categories': ['biome', 'loot'], 'description': 'Sky islands are evil and have locked chests.' },
+addCombo([remix, seedNot(noSurface), seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The world is reversed, with the layers using the Remix rules for determining the Surface, Underground, Cavern and Ocean biomes. A Glowing Mushroom layer spawns above the Underworld. The Jungle Temple is on the Surface.' },
+    { 'categories': ['biome'], 'description': '50% more surface tunnels spawn.' },
 ]);
 
-addCombo([forTheWorthy, seedNot(skyblock)], [
-    { 'categories': ['loot'], 'description': 'Sky islands have Locked Gold Chests.' },
+addCombo([remix, noSurface, seedNot(skyblock)], [
+    { 'categories': ['biome'], 'description': 'The world is reversed, with the layers using the Remix rules for determining the Surface, Underground, Cavern and Ocean biomes. A Glowing Mushroom layer spawns above the Underworld. The Jungle Temple spawns normally, since there is no true surface.' },
 ]);
 
 addCombo([remix, seedNot(drunk), seedNot(forTheWorthy), seedNot(skyblock)], [
@@ -1075,4 +1433,33 @@ addCombo([seedNot(forTheWorthy), celebrationMk10, remix, seedNot(skyblock)], [
 
 addCombo([seedNot(forTheWorthy), seedNot(celebrationMk10), remix, seedNot(skyblock)], [
     { 'categories': ['loot'], 'description': 'The surface of the world is completely corrupted.' },
+]);
+
+addCombo([skyblock, errorWorld], [
+    { 'categories': ['biome'], 'description': 'The amount of changes incurred by Error world are halved by skyblock.' },
+]);
+
+addCombo([skyblock], [
+    { 'categories': ['enemyspawning'], 'description': 'Enemy spawn rates are doubled by Skyblock.' },
+    { 'categories': ['enemyspawning', 'townnpc'], 'description': 'At least two Town NPCs must be present to decrease enemy spawns.' },
+    { 'categories': ['enemyspawning'], 'description': 'Mimics can spawn in the Cavern layer in PreHardmode. They will be Frost Mimics if they spawn in the Ice Biome.' },
+    { 'categories': ['enemyspawning'], 'description': 'Slimes and Torch Zombies are more common pre-Boss (outside of Graveyards).' },
+    { 'categories': ['enemyspawning'], 'description': 'Spiked Ice Slimes, Jungle Slimes and Black Slimes keep their pre-Hardmode spawn frequency even in Hardmode.' },
+    { 'categories': ['enemyspawning'], 'description': 'Holiday Slimes are much less likely.' },
+    { 'categories': ['enemyspawning'], 'description': 'Gnomes are less likely to spawn, and are especially unlikely to appear in groups.' },
+    { 'categories': ['enemyai'], 'description': 'The Eater of Worlds is not as restricted to ground tiles and doesn\'t make burrowing noises.' },
+     { 'categories': ['enemyai', 'enemyspawning', 'loot'], 'description': 'Slimes are more likely to contain items. If Skeletron is defeated, Slimes can spawn containing Hellstone. Ice Slimes and Spiked Ice Slimes have a chance to contain Snow or Slush. If Fossil is not present, Sand Slimes have a chance to contain Fossil. If no life crystals are in the world, slimes may spawn containing Life Crystals. Slimes may drop voice-changing items. Slimes may contain Grass, Jungle, and Mushroom Grass seeds. In Hardmode, slimes may contain Harmode ores. Slimes are more likely to contain ropes or torches and less likely to contain bombs or high-value coins. Lava Slimes drop lava even in Classic mode, and the amount of lava is increased.' },
+   { 'categories': ['loot'], 'description': 'Zombies can drop Sickles and Wood.' },
+   { 'categories': ['townnpc'], 'description': 'Town NPCs gain a 50% damage increase and their attack speed may increase.' },
+   { 'categories': ['loot'], 'description': 'Bosses drop certain types of loot if it is not already present int the world. The Eye of Cthulhu drops an altar; the Eater of Worlds or Brain of Cthulhu drop Dungeon bricks and unsafe Dungeon walls. Skeletron drops a Hellforge. Plantera drops Lihzahrd bricks, Lihzahrd walls, and a Picksaw. Golem drops Jungle Traps.' },
+   { 'categories': ['environment'], 'description': 'Defeating the Brain of Cthulhu or the Eater of Worlds has the same effect as smashing a Shadow Orb (for instance, the Goblin Army can arrive and the Travelling Merchant can sell the Revolver).' },
+   { 'categories': ['enemyspawning'], 'description': 'Many bosses that are usually coded to spawn in solid tiles can spawn in midair, including Queen Bee, The Twins, Skeletron Prime, the Brain of Cthulhu and Betsy.' },
+  { 'categories': ['enemyspawning'], 'description': 'The Mechanical Bosses and the Pirate invasion can occur even if an altar hasn\'t been smashed. Slime Rain is 5x more likely if King Slime has not been defeated. The Eye of Cthulhu spawns more rarely, and can continue to spawn if there are no altars.' },
+  { 'categories': ['enemyspawning'], 'description': 'Meteor showers replace meteors.' },
+   { 'categories': ['enemyspawning'], 'description': 'The Old Man and the Cultists can spawn on any Dungeon tiles in the Surface.' },
+ { 'categories': ['biome'], 'description': 'Snow and Desert biomes only need 300 tiles instead of 1500.' },
+]);
+
+addCombo([remix], [
+    { 'categories': ['enemyspawning'], 'description': 'Gnomes are twice as likely to spawn, but can only spawn in the Cavern layer above the Glowing Mushroom layer.' },
 ]);
