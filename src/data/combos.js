@@ -359,6 +359,10 @@ addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection
    { 'categories': ['loot'], 'description': 'Chests can randomly have loot swapped between them anywhere in the world, but the loot must have the same rarity.' },
 ]);
 
+addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
+   { 'categories': ['loot'], 'description': 'Naturally-generated placed extractinators are replaced by Chlorophyte Extractinators.' },
+]);
+
 addCombo([errorWorld, seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])]), seedNot(secretSeedsCount(6,-1,errorWorld)) ], [
    { 'categories': ['loot'], 'description': 'Chests can randomly have loot swapped between them anywhere in the world, regardless of rarity. In addition, one of 32 special items can appear in the chests, including the Universal Pylon' },
 ]);
