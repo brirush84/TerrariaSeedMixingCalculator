@@ -304,7 +304,7 @@ addCombo([surfaceIsDesert, seedNot(noSurface), seedNot(skyblock)], [
 ]);
 
 addCombo([noSurface], [
-   { 'categories': ['townnpc'], 'description': 'The Truffle can move in without being on the surface.' },
+   { 'categories': ['townnpc'], 'description': 'The Truffle can never move in.' },
 ]);
 
 addCombo([seedOr([dualDungeons, errorWorld]), seedOr([seedNot(skyblock), seedOr([extraLiquid,noInfection,surfaceIsDesert,worldIsFrozen,hallowOnTheSurface,worldIsInfected,surfaceIsMushrooms])])], [
