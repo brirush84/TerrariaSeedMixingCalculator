@@ -235,7 +235,7 @@ addCombo([secretSeedsCount(4, -1, coatEverythingEcho), coatEverythingEcho], [
     { 'categories': ['paint'], 'description': 'Only traps and spikes are coated with Echo coating.' },
 ]);
 
-addCombo([coatEverythingIlluminant, seedOr([paintEverythingGray, paintEverythingNegative, secretSeedsCount(3,-1, coatEverythingIlluminant)])], [
+addCombo([coatEverythingIlluminant, coatEverythingEcho, seedOr([paintEverythingGray, paintEverythingNegative, secretSeedsCount(3,-1, coatEverythingIlluminant)])], [
     { 'categories': ['paint'], 'description': 'Only Life Crystals (and, when present, Mana crystals) are coated with Illluminant coating.' },
 ]);
 
